@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /guides/
+Disallow: /free-guide/thank-you
+
+Sitemap: https://www.gunshyfix.com/sitemap.xml

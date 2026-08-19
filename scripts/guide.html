@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>5 Gun Introduction Mistakes That Can Create a Gun-Shy Dog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --ink: #1c1b19;
+        --paper: #f6f4f0;
+        --white: #ffffff;
+        --line: #ddd8d0;
+        --muted: #5e5a54;
+        --copper: #8a4b2a;
+        --wash: #efeae3;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { background: var(--paper); }
+      body {
+        font-family: "Source Sans 3", "Segoe UI", sans-serif;
+        color: var(--ink);
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      @page { size: letter; margin: 0; }
+      a { color: inherit; }
+      .page {
+        width: 8.5in;
+        height: 11in;
+        page-break-after: always;
+        position: relative;
+        overflow: hidden;
+      }
+      .page:last-child { page-break-after: auto; }
+      h1, h2, h3, .serif {
+        font-family: "Source Serif 4", Georgia, serif;
+        font-weight: 600;
+        line-height: 1.18;
+        letter-spacing: -0.02em;
+      }
+      .eyebrow {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--copper);
+      }
+      p { font-size: 13.5px; line-height: 1.52; }
+      p + p { margin-top: 9px; }
+      ul, ol { margin: 9px 0 0 18px; }
+      li { font-size: 13.5px; line-height: 1.48; margin-top: 4px; }
+      h2 { font-size: 24px; margin: 0 0 14px; }
+      h3 {
+        font-size: 16px;
+        margin: 18px 0 8px;
+      }
+      .inner { padding: 0.88in 0.9in 0.78in; }
+      .running {
+        position: absolute;
+        top: 0.4in;
+        left: 0.9in;
+        right: 0.9in;
+        display: flex;
+        justify-content: space-between;
+        font-size: 9px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        font-weight: 700;
+      }
+      .folio {
+        position: absolute;
+        bottom: 0.38in;
+        left: 0.9in;
+        right: 0.9in;
+        display: flex;
+        justify-content: space-between;
+        font-size: 10px;
+        color: var(--muted);
+      }
+      .folio a { text-decoration: none; }
+      .rule {
+        height: 1px;
+        background: var(--line);
+        margin: 16px 0;
+      }
+      .cover { background: var(--ink); color: #ece8e2; }
+      .cover .inner {
+        padding: 0.92in 0.9in 0;
+        height: 5.85in;
+      }
+      .cover .brand {
+        color: #c4bfb6;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+      .cover img.logo {
+        height: 34px;
+        width: auto;
+        margin-bottom: 26px;
+        display: block;
+      }
+      .cover h1 {
+        color: #fff;
+        font-size: 34px;
+        max-width: 6.5in;
+        margin: 18px 0 14px;
+        line-height: 1.12;
+      }
+      .cover .sub { color: #c4bfb6; font-size: 16px; max-width: 5.6in; }
+      .cover .attr { margin-top: 28px; color: #b3aea6; font-size: 13px; line-height: 1.45; }
+      .cover .attr a { color: #c4bfb6; text-decoration: none; }
+      .cover-photo {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 4.85in;
+      }
+      .cover-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 45% 8%;
+        display: block;
+      }
+      .cover-photo::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to bottom, #1c1b19 0%, rgba(28,27,25,0.25) 8%, transparent 20%);
+      }
+      .num {
+        font-family: "Source Serif 4", Georgia, serif;
+        color: var(--copper);
+        font-size: 15px;
+        margin-bottom: 8px;
+      }
+      .tyce-rule {
+        margin-top: 18px;
+        padding: 14px 16px 14px 18px;
+        border-left: 3px solid var(--copper);
+        background: var(--wash);
+      }
+      .tyce-rule .label {
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--copper);
+        margin-bottom: 6px;
+      }
+      .tyce-rule p {
+        font-family: "Source Serif 4", Georgia, serif;
+        font-size: 15px;
+        line-height: 1.4;
+        margin: 0;
+      }
+      .quote {
+        margin: 14px 0;
+        padding-left: 16px;
+        border-left: 2px solid var(--line);
+        color: var(--muted);
+        font-family: "Source Serif 4", Georgia, serif;
+        font-size: 15px;
+        line-height: 1.4;
+      }
+      .cta-box {
+        margin-top: 20px;
+        padding: 20px 22px 22px;
+        background: var(--white);
+        border: 1px solid var(--line);
+      }
+      .cta-box h3 { font-size: 20px; margin: 0 0 10px; line-height: 1.25; }
+      .cta-box p { font-size: 13.5px; }
+      .cta-btn {
+        display: inline-block;
+        margin-top: 16px;
+        background: var(--ink);
+        color: #fff !important;
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 13px 18px;
+      }
+      .cta-url {
+        display: block;
+        margin-top: 12px;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        color: var(--copper);
+        text-decoration: none;
+      }
+      .guide-photo {
+        display: block;
+        width: 5.05in;
+        height: auto;
+        margin: 14px auto 6px;
+      }
+      .guide-photo.train {
+        width: 4.9in;
+      }
+      .guide-photo.lab {
+        width: 4.35in;
+      }
+      .guide-photo.run {
+        width: 6.7in;
+      }
+      .caption {
+        font-size: 11.5px;
+        color: var(--muted);
+        line-height: 1.35;
+        margin-bottom: 4px;
+      }
+      .sign-cols {
+        columns: 2;
+        column-gap: 28px;
+        margin: 8px 0 12px 18px;
+      }
+      .sign-cols li { break-inside: avoid; }
+      .roomy h3 { margin: 22px 0 10px; }
+      .roomy .tyce-rule { margin-top: 22px; padding: 16px 18px 16px 20px; }
+      .roomy ul { margin-top: 12px; }
+      .roomy li { margin-top: 6px; }
+      .roomy p + p { margin-top: 11px; }
+      .tight p + p { margin-top: 6px; }
+      .tight h2 { font-size: 22px; margin-bottom: 10px; }
+      .tight h3 { margin: 12px 0 6px; }
+      .tight .tyce-rule { margin-top: 12px; padding: 11px 14px 11px 16px; }
+      .path {
+        list-style: none;
+        margin: 16px 0 6px;
+        border-top: 1px solid var(--line);
+      }
+      .path li {
+        display: flex;
+        gap: 16px;
+        padding: 11px 0;
+        border-bottom: 1px solid var(--line);
+        margin: 0;
+        font-size: 13.5px;
+        line-height: 1.4;
+      }
+      .path .n {
+        font-family: "Source Serif 4", Georgia, serif;
+        color: var(--copper);
+        font-size: 18px;
+        width: 22px;
+        flex: none;
+        line-height: 1.2;
+      }
+      .path strong {
+        display: block;
+        font-family: "Source Serif 4", Georgia, serif;
+        font-size: 15px;
+        font-weight: 600;
+        margin-bottom: 2px;
+      }
+      .path .note {
+        color: var(--muted);
+        font-size: 12.5px;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="page cover">
+      <div class="inner">
+        <img class="logo" src="../images/logo-cover.jpg" alt="Gunshy Fix" />
+        <p class="brand">Gunshy Fix · Payson, Utah</p>
+        <p class="eyebrow" style="color:#c9a38a;margin-top:32px">Free Gunshy Fix training guide</p>
+        <h1>5 Gun Introduction Mistakes That Can Create a Gun-Shy Dog</h1>
+        <p class="sub">A Practical Guide From Bird Dog Trainer Tyce Erickson</p>
+        <p class="attr">Tyce Erickson<br />Professional Bird Dog Trainer<br />Utah Bird Dog Training · <a href="https://www.gunshyfix.com">gunshyfix.com</a></p>
+      </div>
+      <div class="cover-photo">
+        <img src="../images/hero.jpg" alt="" />
+      </div>
+    </section>
+
+    <section class="page">
+      <p class="running"><span>Gunshy Fix</span><span>A practical guide</span></p>
+      <div class="inner" style="padding-top:0.88in">
+        <p class="eyebrow">Before you start</p>
+        <h2 style="font-size:26px;margin:10px 0 16px">Before You Introduce Your Dog to Gunfire</h2>
+        <p>Most hunters do not intentionally create a gun-shy dog.</p>
+        <p>Usually, they are excited.</p>
+        <p>They have a new puppy or young hunting dog. The dog is retrieving well, showing bird drive, and they are ready to take the next step.</p>
+        <p>So they introduce a gun.</p>
+        <p>Sometimes everything goes fine.</p>
+        <p>Other times, that first experience creates a problem that can take weeks or months to work through.</p>
+        <p>One of the biggest things I wish more hunters understood is this:</p>
+        <div class="tyce-rule">
+          <p class="label">Tyce’s Rule</p>
+          <p>You do not need to test a dog to find out whether it is gun shy.</p>
+        </div>
+        <p style="margin-top:16px">A gradual introduction gives the dog a much better opportunity to build a positive relationship with gunfire from the beginning.</p>
+        <p>Here are five mistakes I see owners make—and what I would do instead.</p>
+        <img class="guide-photo run" src="../images/golden-run.jpg" alt="" />
+        <p class="caption">The dog is retrieving well, showing bird drive.</p>
+      </div>
+      <p class="folio"><span><a href="https://www.gunshyfix.com">gunshyfix.com</a></span><span>2</span></p>
+    </section>
+
+    <section class="page">
+      <p class="running"><span>Gunshy Fix</span><span>Mistake 1</span></p>
+      <div class="inner roomy" style="padding-top:0.88in">
+        <p class="num">Mistake #1</p>
+        <h2>Testing the Dog With a Gunshot</h2>
+        <p>This is probably the most common mistake I see.</p>
+        <p>Someone has a young dog and wants to know whether it is gun shy.</p>
+        <p>So they take the dog outside, fire a gun, and watch what happens.</p>
+        <p>The problem is that the test itself can create the issue.</p>
+        <p>The owner may think:</p>
+        <p class="quote">“If the dog is okay with it, great. If not, we'll know.”</p>
+        <p>But that first shot may be much louder or closer than the dog is ready for.</p>
+        <p>The dog is not learning that gunfire is positive.</p>
+        <p>It is simply being surprised by a loud noise.</p>
+        <h3>What I Do Instead</h3>
+        <p>I want something positive happening <strong>before the gun is ever introduced</strong>.</p>
+        <p>For a hunting dog, that may be:</p>
+        <ul>
+          <li>Birds</li>
+          <li>Retrieving</li>
+          <li>Chasing</li>
+          <li>Prey drive</li>
+          <li>Play</li>
+          <li>Movement</li>
+        </ul>
+        <p>Once the dog is highly engaged and having a good time, gunfire can be introduced gradually at a distance.</p>
+        <p>The goal is not to see what the dog can tolerate.</p>
+        <p>The goal is to build confidence.</p>
+        <div class="tyce-rule">
+          <p class="label">Tyce’s Rule</p>
+          <p>Never use gunfire to test whether a dog is gun shy.</p>
+        </div>
+      </div>
+      <p class="folio"><span><a href="https://www.gunshyfix.com">gunshyfix.com</a></span><span>3</span></p>
+    </section>
+
+    <section class="page">
+      <p class="running"><span>Gunshy Fix</span><span>Mistake 2</span></p>
+      <div class="inner" style="padding-top:0.88in">
+        <p class="num">Mistake #2</p>
+        <h2>Starting Too Close or Too Loud</h2>
+        <p>There is no prize for getting a puppy comfortable with a close shotgun blast as quickly as possible.</p>
+        <p>When I first introduce live gunfire, I want the shooter far enough away that the shot is <strong>barely noticeable to the dog</strong>.</p>
+        <p>That distance will not be the same for every dog.</p>
+        <p>One puppy might be comfortable at a certain distance while another needs much more space.</p>
+        <p>The dog determines the starting point.</p>
+        <h3>What I Look For</h3>
+        <p>If the dog is working around birds or retrieving, I want it to continue doing exactly what it was doing before the shot.</p>
+        <p>Is it still:</p>
+        <ul>
+          <li>Chasing?</li>
+          <li>Retrieving?</li>
+          <li>Hunting?</li>
+          <li>Showing bird interest?</li>
+          <li>Moving with the same energy?</li>
+        </ul>
+        <p>If yes, we may be able to continue gradually.</p>
+        <p>If the dog stops and begins focusing on the shot, we have probably started too close.</p>
+        <h3>What I Do Instead</h3>
+        <p>Start farther away than you think you need to.</p>
+        <p>You can always move closer later.</p>
+        <p>It is much easier to build confidence gradually than to repair a bad first experience.</p>
+        <img class="guide-photo train" src="../images/tyce-sharpie.jpg" alt="" />
+        <p class="caption">Start farther away than you think you need to. You can always move closer later.</p>
+      </div>
+      <p class="folio"><span><a href="https://www.gunshyfix.com">gunshyfix.com</a></span><span>4</span></p>
+    </section>
+
+    <section class="page">
+      <p class="running"><span>Gunshy Fix</span><span>Mistake 3</span></p>
+      <div class="inner tight" style="padding-top:0.72in">
+        <p class="num">Mistake #3</p>
+        <h2>Assuming the Dog Is Fine Because It Didn't Run Away</h2>
+        <p>A gun-shy dog does not always run back to the truck.</p>
+        <p>Some dogs do.</p>
+        <p>Others simply shut down.</p>
+        <p>This is where owners sometimes miss the early signs of a problem.</p>
+        <p>The dog may stay right beside them, so they assume everything is okay.</p>
+        <p>But before the shot, the dog was ranging through the field, hunting, retrieving, or chasing birds.</p>
+        <p>After the shot, the dog begins walking directly beside the owner.</p>
+        <p>That is a change.</p>
+        <img class="guide-photo lab" src="../images/lab-blind.jpg" alt="" />
+        <p class="caption">The question is not simply whether the dog ran away. Did the dog’s normal demeanor change?</p>
+        <h3>Signs I Watch For</h3>
+        <p>A dog may be showing concern around gunfire if it:</p>
+        <ul class="sign-cols">
+          <li>Stops ranging out</li>
+          <li>Stops hunting</li>
+          <li>Stops retrieving</li>
+          <li>Loses bird interest</li>
+          <li>Walks behind or beside the handler</li>
+          <li>Becomes unusually quiet</li>
+          <li>Lowers its energy</li>
+          <li>Becomes clingy</li>
+          <li>Focuses on the gun instead of the activity</li>
+          <li>Runs back toward the truck</li>
+        </ul>
+        <p>The question I ask is not simply:</p>
+        <p><strong>“Did the dog run away?”</strong></p>
+        <p>I ask:</p>
+        <p><strong>“Did the dog's normal demeanor change?”</strong></p>
+        <div class="tyce-rule">
+          <p class="label">Tyce’s Rule</p>
+          <p>The goal is a dog that hears gunfire and keeps being itself.</p>
+        </div>
+      </div>
+      <p class="folio"><span><a href="https://www.gunshyfix.com">gunshyfix.com</a></span><span>5</span></p>
+    </section>
+
+    <section class="page">
+      <p class="running"><span>Gunshy Fix</span><span>Mistake 4</span></p>
+      <div class="inner roomy" style="padding-top:0.88in">
+        <p class="num">Mistake #4</p>
+        <h2>Moving Forward Because of the Calendar Instead of the Dog</h2>
+        <p>Owners like schedules.</p>
+        <p>The dog does not care about your schedule.</p>
+        <p>There is no rule that says:</p>
+        <ul>
+          <li>Move the gun closer after three days.</li>
+          <li>Increase the volume after five repetitions.</li>
+          <li>The puppy should be ready by next weekend.</li>
+          <li>The dog has to be ready before hunting season.</li>
+        </ul>
+        <p>The dog determines when you progress.</p>
+        <h3>What I Do Instead</h3>
+        <p>Watch the dog's demeanor.</p>
+        <p>If the dog stays happy, driven, and engaged, you can gradually move forward.</p>
+        <p>If the dog:</p>
+        <ul>
+          <li>Stops retrieving</li>
+          <li>Stops hunting</li>
+          <li>Becomes concerned about the sound</li>
+          <li>Loses energy</li>
+          <li>Comes back toward the handler</li>
+          <li>Stops acting normally</li>
+        </ul>
+        <p>then you back up.</p>
+        <p>That may mean moving the gun farther away.</p>
+        <p>It may mean returning to an earlier sound level.</p>
+        <p>It may mean taking live gunfire out of the training temporarily.</p>
+        <h3>The Important Part</h3>
+        <div class="tyce-rule">
+          <p class="label">Tyce’s Rule</p>
+          <p>Progress is based on comfort, not time.</p>
+        </div>
+        <p style="margin-top:14px">Trying to rush because hunting season is coming can turn a small issue into a problem that takes months to repair.</p>
+      </div>
+      <p class="folio"><span><a href="https://www.gunshyfix.com">gunshyfix.com</a></span><span>6</span></p>
+    </section>
+
+    <section class="page">
+      <p class="running"><span>Gunshy Fix</span><span>Mistake 5</span></p>
+      <div class="inner roomy" style="padding-top:0.88in">
+        <p class="num">Mistake #5</p>
+        <h2>Trying to Fix Fear With More Gunfire</h2>
+        <p>This is one of the biggest mistakes I see after a problem has already started.</p>
+        <p>The dog reacts badly to gunfire.</p>
+        <p>The owner thinks:</p>
+        <p class="quote">“He just needs to hear more of it.”</p>
+        <p>So they:</p>
+        <ul>
+          <li>Keep taking the dog hunting</li>
+          <li>Shoot around the dog repeatedly</li>
+          <li>Take the dog near a shooting range</li>
+          <li>Tie the dog somewhere while people shoot</li>
+          <li>Play loud gunfire recordings</li>
+          <li>Continue increasing the sound</li>
+        </ul>
+        <p>They may call that desensitization.</p>
+        <p>That is not how I approach desensitization.</p>
+        <p>If the dog is already frightened, starting with an intense sound can reinforce the fear instead of reducing it.</p>
+        <h3>What I Do Instead</h3>
+        <p>Back up.</p>
+        <p>Start at a level where the dog can remain comfortable.</p>
+        <p>Keep something positive going.</p>
+        <p>Then build gradually.</p>
+        <p>With live gunfire, that may mean going back to birds or retrieving and putting the shooter much farther away.</p>
+        <p>For dogs that already have a strong negative association with gunfire, I may back away from live shooting and use a controlled sound progression first.</p>
+        <div class="tyce-rule">
+          <p class="label">Tyce’s Rule</p>
+          <p>If the dog is already frightened, starting with an intense sound can reinforce the fear instead of reducing it.</p>
+        </div>
+      </div>
+      <p class="folio"><span><a href="https://www.gunshyfix.com">gunshyfix.com</a></span><span>7</span></p>
+    </section>
+
+    <section class="page">
+      <p class="running"><span>Gunshy Fix</span><span>What to do instead</span></p>
+      <div class="inner" style="padding-top:0.86in">
+        <p class="eyebrow">The better path</p>
+        <h2 style="font-size:22px;margin:8px 0 12px">So What Should a Proper Gun Introduction Look Like?</h2>
+        <p>The exact progression will vary from dog to dog, but the basic idea is simple.</p>
+        <ol class="path">
+          <li>
+            <span class="n">1</span>
+            <div>
+              <strong>Start With Something Positive</strong>
+              Birds · Retrieving · Play · Food · Movement
+            </div>
+          </li>
+          <li>
+            <span class="n">2</span>
+            <div>
+              <strong>Introduce Sound at a Low Level</strong>
+              With live gunfire, begin at a distance where the shot is barely noticeable. With recorded sound, begin at a comfortable level.
+            </div>
+          </li>
+          <li>
+            <span class="n">3</span>
+            <div>
+              <strong>Watch the Dog</strong>
+              The dog should continue acting normally.
+            </div>
+          </li>
+          <li>
+            <span class="n">4</span>
+            <div>
+              <strong>Progress Gradually</strong>
+              Move closer or increase the sound only if the dog remains happy and confident.
+            </div>
+          </li>
+          <li>
+            <span class="n">5</span>
+            <div>
+              <strong>Back Up When the Dog Tells You To</strong>
+              If the dog's demeanor changes, return to the previous comfortable level. There is no reason to force&nbsp;the&nbsp;process.
+            </div>
+          </li>
+        </ol>
+        <h3>What If Your Dog Is Already Gun Shy?</h3>
+        <p>If you are reading this because you think you already moved too quickly, stop testing the dog with more gunfire.</p>
+        <p>That does not mean the dog is automatically ruined.</p>
+        <p>I've worked with dogs that had very good hunting ability but shut down once gunfire was introduced.</p>
+        <p>Some of those dogs can make very good progress.</p>
+        <p>I do not guarantee that every gun-shy dog can be completely fixed.</p>
+        <p>Some cases take a month. Some take several months. Some require professional field work.</p>
+        <p>But the first step is usually the same:</p>
+        <div class="tyce-rule">
+          <p class="label">The first step</p>
+          <p>Stop reinforcing the negative experience and start rebuilding confidence gradually.</p>
+        </div>
+      </div>
+      <p class="folio"><span><a href="https://www.gunshyfix.com">gunshyfix.com</a></span><span>8</span></p>
+    </section>
+
+    <section class="page">
+      <p class="running"><span>Gunshy Fix</span><span>Gunshy Fix</span></p>
+      <div class="inner" style="padding-top:0.88in">
+        <p class="eyebrow">At home</p>
+        <h2 style="font-size:24px;margin:10px 0 14px">Why I Created Gunshy Fix</h2>
+        <p>I created Gunshy Fix because I kept seeing the same problem.</p>
+        <p>Owners had good dogs that could hunt, retrieve, and work birds—but once the gun came out, the dog shut down.</p>
+        <p>Some people did not have access to birds.</p>
+        <p>Some did not have enough property to safely start gunfire at a long distance.</p>
+        <p>Some did not have another person available to operate the gun while they worked the dog.</p>
+        <p>And some dogs reached a point in live training where they simply could not get past the sound of the gun getting closer.</p>
+        <p>Gunshy Fix gives owners a way to begin that process at home.</p>
+        <p>The program starts with calming music and progressively introduces gunfire recordings through the lessons.</p>
+        <p>The dog stays on each lesson until its demeanor remains normal.</p>
+        <p>If the dog shows concern, you go back.</p>
+        <p>The dog sets the pace.</p>
+        <div class="rule"></div>
+        <h3>The One Thing I Want You to Remember</h3>
+        <p>Whether you are introducing gunfire to a puppy or working with a dog that has already had a bad experience:</p>
+        <div class="tyce-rule">
+          <p class="label">Tyce’s Rule</p>
+          <p>Do not rush the gun.</p>
+        </div>
+        <p style="margin-top:12px">Build something positive first.</p>
+        <p>Start quietly or far away.</p>
+        <p>Watch the dog's demeanor.</p>
+        <p>And move forward only when the dog is ready.</p>
+        <p>A slower introduction now can save you from spending months trying to repair a problem later.</p>
+        <div class="cta-box">
+          <h3>Is Your Dog Already Showing Concern Around Gunfire?</h3>
+          <p>Gunshy Fix was created as a controlled way to introduce or reintroduce gunfire sounds at home before transitioning to live field work.</p>
+          <a class="cta-btn" href="https://www.gunshyfix.com/how-it-works">Learn How Gunshy Fix Works</a>
+          <a class="cta-url" href="https://www.gunshyfix.com">gunshyfix.com</a>
+        </div>
+      </div>
+      <p class="folio"><span><a href="https://www.gunshyfix.com">gunshyfix.com</a></span><span>9</span></p>
+    </section>
+  </body>
+</html>

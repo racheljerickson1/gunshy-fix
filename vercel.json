@@ -1,0 +1,38 @@
+{
+  "cleanUrls": true,
+  "headers": [
+    {
+      "source": "/guides/(.*)",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" },
+        { "key": "Cache-Control", "value": "public, max-age=86400" }
+      ]
+    },
+    {
+      "source": "/api/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "no-store" }]
+    }
+  ],
+  "redirects": [
+    { "source": "/home", "destination": "/", "permanent": true },
+    { "source": "/gunshy-fix-store", "destination": "/program", "permanent": true },
+    { "source": "/gun-shy-information", "destination": "/learn", "permanent": true },
+    { "source": "/videos-of-program-in-action", "destination": "/videos", "permanent": true },
+    { "source": "/learn/dog-scared-of-gunshots", "destination": "/learn/my-dog-is-scared-of-gunshots", "permanent": true },
+    { "source": "/learn/dog-scared-of-gunshots.html", "destination": "/learn/my-dog-is-scared-of-gunshots", "permanent": true },
+    { "source": "/learn/how-long-to-fix-a-gun-shy-dog", "destination": "/learn/how-long-does-it-take-to-fix-a-gun-shy-dog", "permanent": true },
+    { "source": "/learn/how-long-to-fix-a-gun-shy-dog.html", "destination": "/learn/how-long-does-it-take-to-fix-a-gun-shy-dog", "permanent": true },
+    { "source": "/learn/when-gun-shy-dog-needs-professional-training", "destination": "/learn/when-does-a-gun-shy-dog-need-professional-training", "permanent": true },
+    { "source": "/learn/when-gun-shy-dog-needs-professional-training.html", "destination": "/learn/when-does-a-gun-shy-dog-need-professional-training", "permanent": true },
+    { "source": "/vacuum", "destination": "/", "permanent": true },
+    { "source": "/vacuum.html", "destination": "/", "permanent": true },
+    { "source": "/learn/why-dog-scared-vacuum", "destination": "/learn", "permanent": true },
+    { "source": "/learn/why-dog-scared-vacuum.html", "destination": "/learn", "permanent": true },
+    { "source": "/learn/get-dog-used-to-vacuum", "destination": "/learn", "permanent": true },
+    { "source": "/learn/get-dog-used-to-vacuum.html", "destination": "/learn", "permanent": true },
+    { "source": "/learn/vacuum-fear-gun-shy", "destination": "/learn", "permanent": true },
+    { "source": "/learn/vacuum-fear-gun-shy.html", "destination": "/learn", "permanent": true },
+    { "source": "/learn/desensitize-dog-fireworks", "destination": "/learn/desensitize-dog-to-fireworks", "permanent": true },
+    { "source": "/learn/desensitize-dog-fireworks.html", "destination": "/learn/desensitize-dog-to-fireworks", "permanent": true }
+  ]
+}

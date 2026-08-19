@@ -15,7 +15,7 @@
   ],
   "redirects": [
     { "source": "/home", "destination": "/", "permanent": true },
-    { "source": "/gunshy-fix-store", "destination": "/program", "permanent": true },
+    { "source": "/gunshy-fix-store", "destination": "https://store.gunshyfix.com/", "permanent": true },
     { "source": "/gun-shy-information", "destination": "/learn", "permanent": true },
     { "source": "/videos-of-program-in-action", "destination": "/videos", "permanent": true },
     { "source": "/learn/dog-scared-of-gunshots", "destination": "/learn/my-dog-is-scared-of-gunshots", "permanent": true },

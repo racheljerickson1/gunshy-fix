@@ -1,5 +1,6 @@
 (function () {
   const LEAD_SLIDE_ENABLED = false;
+  const GA_MEASUREMENT_ID = "G-C034KPY8W2";
   const LEARN_GUIDE_PAGES = [
     "introduce-puppy-to-gunfire",
     "shot-too-close-to-puppy",
@@ -9,6 +10,19 @@
   ];
 
   window.dataLayer = window.dataLayer || [];
+
+  if (GA_MEASUREMENT_ID) {
+    function gtag() {
+      window.dataLayer.push(arguments);
+    }
+    window.gtag = gtag;
+    const ga = document.createElement("script");
+    ga.async = true;
+    ga.src = "https://www.googletagmanager.com/gtag/js?id=" + GA_MEASUREMENT_ID;
+    document.head.appendChild(ga);
+    gtag("js", new Date());
+    gtag("config", GA_MEASUREMENT_ID);
+  }
 
   function siteRoot() {
     const path = location.pathname;

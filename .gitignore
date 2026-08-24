@@ -5,3 +5,4 @@ node_modules/
 .env.local
 scripts/pdf-preview/
 purchases-export*.csv
+.env*

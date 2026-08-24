@@ -15,6 +15,9 @@
   ],
   "redirects": [
     { "source": "/home", "destination": "/", "permanent": true },
+    { "source": "/store", "destination": "https://store.gunshyfix.com/", "permanent": true },
+    { "source": "/shop", "destination": "https://store.gunshyfix.com/", "permanent": true },
+    { "source": "/cart", "destination": "https://store.gunshyfix.com/", "permanent": true },
     { "source": "/gunshy-fix-store", "destination": "https://store.gunshyfix.com/", "permanent": true },
     { "source": "/gun-shy-information", "destination": "/learn", "permanent": true },
     { "source": "/videos-of-program-in-action", "destination": "/videos", "permanent": true },

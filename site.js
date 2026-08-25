@@ -1,6 +1,6 @@
 (function () {
-  const LEAD_SLIDE_ENABLED = false;
   const GA_MEASUREMENT_ID = "G-C034KPY8W2";
+  const POPUP_DISMISS_MS = 7 * 24 * 60 * 60 * 1000;
   const LEARN_GUIDE_PAGES = [
     "introduce-puppy-to-gunfire",
     "shot-too-close-to-puppy",
@@ -181,6 +181,11 @@
           );
         }
         track("free_guide_subscribe_success", { location: location.pathname });
+        try {
+          localStorage.setItem("gsf_guide_subscribed", "1");
+        } catch {
+          /* ignore */
+        }
         location.href = data.redirect || "/free-guide/thank-you";
       } catch (error) {
         if (status) {
@@ -197,61 +202,112 @@
     });
   }
 
-  function initLeadSlide() {
-    if (!LEAD_SLIDE_ENABLED) return;
-    if (document.body.hasAttribute("data-no-footer-lead")) return;
-    if (sessionStorage.getItem("gsf_slide_closed")) return;
-
-    const slide = document.createElement("aside");
-    slide.className = "lead-slide";
-    slide.setAttribute("role", "dialog");
-    slide.setAttribute("aria-label", "Free training guide");
-    slide.innerHTML =
-      '<button type="button" class="lead-slide-close" aria-label="Close">Close</button>' +
-      '<p class="eyebrow">Free Guide</p>' +
-      "<h3>5 gun introduction mistakes</h3>" +
-      "<p>A practical guide from Tyce Erickson — before you introduce a dog to gunfire.</p>" +
-      '<p style="margin-top:0.9rem"><a class="btn btn-primary" href="' +
-      root +
-      'free-guide/">Get the Free Guide</a></p>';
-    document.body.appendChild(slide);
-
-    function openSlide() {
-      slide.classList.add("is-open");
-      track("lead_slide_view", { location: location.pathname });
+  function shouldSkipLeadPopup() {
+    const path = location.pathname;
+    if (document.body.hasAttribute("data-no-footer-lead")) return true;
+    if (path.indexOf("/free-guide") !== -1) return true;
+    try {
+      if (sessionStorage.getItem("gsf_popup_shown")) return true;
+      if (localStorage.getItem("gsf_guide_subscribed")) return true;
+      const dismissed = Number(localStorage.getItem("gsf_popup_dismissed") || 0);
+      if (dismissed && Date.now() - dismissed < POPUP_DISMISS_MS) return true;
+    } catch {
+      /* ignore */
     }
+    return false;
+  }
 
-    slide.querySelector(".lead-slide-close").addEventListener("click", () => {
-      slide.classList.remove("is-open");
+  function initLeadPopup() {
+    if (shouldSkipLeadPopup()) return;
+
+    const overlay = document.createElement("div");
+    overlay.className = "lead-popup-overlay";
+    overlay.innerHTML =
+      '<div class="lead-popup" role="dialog" aria-modal="true" aria-labelledby="lead-popup-title">' +
+      '<button type="button" class="lead-popup-close" aria-label="Close">Close</button>' +
+      '<p class="eyebrow">Free training guide</p>' +
+      '<h2 id="lead-popup-title">5 gun introduction mistakes that can create a gun-shy dog</h2>' +
+      "<p>A practical guide from Tyce Erickson — before you introduce a dog to gunfire.</p>" +
+      '<form class="guide-form" data-guide-form>' +
+      '<div class="hp-field"><label for="popup-company">Company</label>' +
+      '<input type="text" id="popup-company" name="company" tabindex="-1" autocomplete="off" /></div>' +
+      '<label for="popup-guide-email">Email address</label>' +
+      '<input id="popup-guide-email" name="email" type="email" inputmode="email" autocomplete="email" required placeholder="you@example.com" />' +
+      '<button class="btn btn-primary" type="submit">Send Me the Free Guide</button>' +
+      '<p class="form-status" role="status" aria-live="polite"></p>' +
+      "</form>" +
+      '<p class="permission">Free Gunshy Fix training tips. Unsubscribe anytime.</p>' +
+      "</div>";
+    document.body.appendChild(overlay);
+
+    const dialog = overlay.querySelector(".lead-popup");
+    const closeBtn = overlay.querySelector(".lead-popup-close");
+    const emailInput = overlay.querySelector("#popup-guide-email");
+    let opened = false;
+    let formReady = false;
+    let lastFocus = null;
+
+    function markShown() {
       try {
-        sessionStorage.setItem("gsf_slide_closed", "1");
+        sessionStorage.setItem("gsf_popup_shown", "1");
       } catch {
         /* ignore */
       }
+    }
+
+    function closePopup() {
+      overlay.classList.remove("is-open");
+      document.body.classList.remove("lead-popup-open");
+      try {
+        localStorage.setItem("gsf_popup_dismissed", String(Date.now()));
+      } catch {
+        /* ignore */
+      }
+      if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus();
+    }
+
+    function openPopup() {
+      if (opened) return;
+      opened = true;
+      markShown();
+      lastFocus = document.activeElement;
+      overlay.classList.add("is-open");
+      document.body.classList.add("lead-popup-open");
+      if (!formReady) {
+        initGuideForm(overlay.querySelector("[data-guide-form]"));
+        formReady = true;
+      }
+      track("lead_popup_view", { location: location.pathname });
+      setTimeout(function () {
+        if (emailInput) emailInput.focus();
+      }, 50);
+    }
+
+    closeBtn.addEventListener("click", closePopup);
+    overlay.addEventListener("click", function (event) {
+      if (event.target === overlay) closePopup();
+    });
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && overlay.classList.contains("is-open")) {
+        closePopup();
+      }
+    });
+    dialog.addEventListener("click", function (event) {
+      event.stopPropagation();
     });
 
-    let opened = false;
+    window.setTimeout(openPopup, 8000);
     window.addEventListener(
       "scroll",
-      function onScroll() {
+      function () {
         if (opened) return;
         const depth =
           (window.scrollY + window.innerHeight) /
-          document.documentElement.scrollHeight;
-        if (depth > 0.6) {
-          opened = true;
-          openSlide();
-        }
+          Math.max(document.documentElement.scrollHeight, 1);
+        if (depth > 0.4) openPopup();
       },
       { passive: true }
     );
-
-    document.addEventListener("mouseout", (event) => {
-      if (opened) return;
-      if (event.clientY > 0) return;
-      opened = true;
-      openSlide();
-    });
   }
 
   function initHowToPath() {
@@ -269,7 +325,7 @@
   addLearnCard();
   bindTrackingClicks();
   initGuideForm(document.querySelector("[data-guide-form]"));
-  initLeadSlide();
+  initLeadPopup();
   initHowToPath();
 
   if (location.pathname.indexOf("/free-guide/thank-you") !== -1) {

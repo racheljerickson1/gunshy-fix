@@ -1,5 +1,6 @@
 {
   "cleanUrls": true,
+  "trailingSlash": false,
   "headers": [
     {
       "source": "/guides/(.*)",
@@ -27,8 +28,8 @@
     { "source": "/learn/how-long-to-fix-a-gun-shy-dog.html", "destination": "/learn/how-long-does-it-take-to-fix-a-gun-shy-dog", "permanent": true },
     { "source": "/learn/when-gun-shy-dog-needs-professional-training", "destination": "/learn/when-does-a-gun-shy-dog-need-professional-training", "permanent": true },
     { "source": "/learn/when-gun-shy-dog-needs-professional-training.html", "destination": "/learn/when-does-a-gun-shy-dog-need-professional-training", "permanent": true },
-    { "source": "/vacuum", "destination": "/", "permanent": true },
-    { "source": "/vacuum.html", "destination": "/", "permanent": true },
+    { "source": "/vacuum", "destination": "/learn", "permanent": true },
+    { "source": "/vacuum.html", "destination": "/learn", "permanent": true },
     { "source": "/learn/why-dog-scared-vacuum", "destination": "/learn", "permanent": true },
     { "source": "/learn/why-dog-scared-vacuum.html", "destination": "/learn", "permanent": true },
     { "source": "/learn/get-dog-used-to-vacuum", "destination": "/learn", "permanent": true },

@@ -24,12 +24,6 @@
     gtag("config", GA_MEASUREMENT_ID);
   }
 
-  function siteRoot() {
-    const path = location.pathname;
-    if (path.includes("/learn/") || path.includes("/free-guide")) return "../";
-    return "";
-  }
-
   function track(event, props) {
     const payload = Object.assign({ event: event }, props || {});
     window.dataLayer.push(payload);
@@ -73,7 +67,6 @@
     });
   });
 
-  const root = siteRoot();
   const utm = readUtms();
 
   function addFooterLead() {
@@ -84,16 +77,14 @@
     const bar = document.createElement("div");
     bar.className = "footer-lead";
     bar.innerHTML =
-      '<div class="footer-lead-inner"><p>Free guide: 5 gun introduction mistakes that can create a gun-shy dog.</p><a href="' +
-      root +
-      'free-guide/">Get the free guide</a></div>';
+      '<div class="footer-lead-inner"><p>Free guide: 5 gun introduction mistakes that can create a gun-shy dog.</p><a href="/free-guide">Get the free guide</a></div>';
     footer.parentNode.insertBefore(bar, footer);
 
     const links = footer.querySelector(".footer-links");
     if (links && !links.querySelector("[data-free-guide]")) {
       const item = document.createElement("li");
       item.innerHTML =
-        '<a data-free-guide href="' + root + 'free-guide/">Free Guide</a>';
+        '<a data-free-guide href="/free-guide">Free Guide</a>';
       links.appendChild(item);
     }
   }
@@ -110,9 +101,7 @@
       '<p class="eyebrow">Free Guide</p>' +
       "<h3>5 Gun Introduction Mistakes That Can Create a Gun-Shy Dog</h3>" +
       "<p>Before your next training session, learn the mistakes Tyce sees hunters make when introducing dogs to gunfire.</p>" +
-      '<a class="btn btn-outline" href="' +
-      root +
-      'free-guide/" data-track="lead_magnet_cta_click">Get the Free Guide</a>';
+      '<a class="btn btn-outline" href="/free-guide" data-track="lead_magnet_cta_click">Get the Free Guide</a>';
     const end = article.querySelector(".article-end");
     if (end) end.insertAdjacentElement("afterend", card);
     else article.appendChild(card);

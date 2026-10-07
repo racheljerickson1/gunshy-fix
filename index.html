@@ -7,6 +7,7 @@
     <meta name="description" content="A structured sound-conditioning program from professional bird dog trainers. Help a gun-shy dog or start a puppy right — at the dog’s pace, not a calendar." />
     <link rel="canonical" href="https://www.gunshyfix.com/" />
     <link rel="icon" href="images/logo.png" />
+    <link rel="preload" as="image" href="images/hero.webp" type="image/webp" fetchpriority="high" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Gunshy Fix" />
     <meta property="og:title" content="Gunshy Fix | Calm, Confident Dogs Around Gunfire" />
@@ -21,7 +22,7 @@
     <nav class="site-nav">
       <div class="nav-inner">
         <a href="/" class="nav-logo">
-          <img src="images/logo.png" alt="Gunshy Fix" />
+          <img src="images/logo.png" srcset="images/logo.webp 1x, images/logo-2x.webp 2x" width="126" height="42" alt="Gunshy Fix" />
         </a>
         <button class="nav-toggle" type="button" aria-expanded="false">Menu</button>
         <ul class="nav-links">
@@ -44,37 +45,42 @@
       <section class="hero">
         <div>
           <p class="eyebrow">Sound conditioning for gun-shy dogs</p>
-          <h1>Help your dog get calm around the sounds that shut them down.</h1>
+          <h1>Fix a gun-shy dog at home with a pro trainer’s 8-lesson audio program</h1>
           <p class="lede">
-            If your dog is gun shy, you do not have to start by shooting around
-            it again. Gun shyness can start with one bad moment. Owners
-            sometimes get excited, shoot around a dog to “see what happens,”
-            and create a problem that can take weeks or months to work through.
-          </p>
-          <p>
-            Gunshy Fix pairs calming music with progressively introduced
-            gunfire recordings, helping the dog build comfort with the sound at
-            home before transitioning back to birds and live field work.
+            Eight MP3 lessons you play on any speaker — crate, kennel, or the
+            yard. $39.99. Built by Tyce Erickson, a working bird dog trainer
+            at Utah Bird Dog Training in Payson, Utah.
           </p>
           <div class="hero-actions">
             <div class="hero-buy">
               <a class="btn btn-primary" href="https://store.gunshyfix.com/">Start Gunshy Fix</a>
               <p class="hero-price">$39.99</p>
             </div>
-            <a class="btn btn-outline" href="/how-it-works">See how it works</a>
           </div>
+          <p class="buy-reassure">
+            Questions before you buy? Call or text Tyce, a working bird dog
+            trainer, and he’ll help you decide if it’s right for your dog.
+            <a href="tel:8013809433">(801) 380-9433</a>
+          </p>
           <p class="hero-help">
             <a href="/learn/my-dog-is-scared-of-gunshots">My dog is already gun shy — what should I do?</a>
           </p>
         </div>
-        <img class="hero-photo" src="images/hero.jpg" alt="Bird dog in the field with a handler" />
+        <picture>
+          <source srcset="images/hero.webp" type="image/webp" />
+          <img class="hero-photo" src="images/hero.jpg" width="1001" height="1114" alt="Bird dog in the field with a handler" fetchpriority="high" />
+        </picture>
       </section>
 
       <section class="section-alt section">
         <div class="wrap split trainer">
           <img
             src="images/training.jpg"
+            width="768"
+            height="432"
             alt="Tyce Erickson working a bird dog"
+            loading="lazy"
+            decoding="async"
           />
           <div>
             <p class="eyebrow">Built by a bird dog trainer</p>
@@ -169,7 +175,7 @@
               <h3>5 Gun Introduction Mistakes</h3>
               <p>A practical guide — before the first shot.</p>
             </div>
-            <img src="images/hero.jpg" alt="" />
+            <img src="images/hero.jpg" width="1001" height="1114" alt="" loading="lazy" decoding="async" />
           </div>
         </div>
       </section>
@@ -199,6 +205,11 @@
             play through a speaker — crate, kennel, or the yard.
           </p>
           <a class="btn btn-on-dark" href="https://store.gunshyfix.com/">Start Gunshy Fix — $39.99</a>
+          <p class="buy-reassure">
+            Questions before you buy? Call or text Tyce, a working bird dog
+            trainer, and he’ll help you decide if it’s right for your dog.
+            <a href="tel:8013809433">(801) 380-9433</a>
+          </p>
         </div>
       </section>
     </main>
@@ -216,6 +227,8 @@
             <li><a href="/learn">Learn</a></li>
             <li><a href="/videos">See It in Action</a></li>
             <li><a href="/contact">Contact</a></li>
+            <li><a href="/privacy">Privacy</a></li>
+            <li><a href="/terms">Terms</a></li>
           </ul>
         </div>
         <ul class="footer-family">

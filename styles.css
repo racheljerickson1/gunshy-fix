@@ -92,7 +92,7 @@ h3,
 
 .nav-logo img {
   height: 42px;
-  width: auto;
+  width: 126px;
 }
 
 .nav-links {
@@ -208,6 +208,10 @@ h3,
   margin-bottom: 1.5rem;
 }
 
+.hero picture {
+  display: contents;
+}
+
 .hero-photo {
   width: 100%;
   height: 28rem;
@@ -244,6 +248,89 @@ h3,
 
 .hero-help a {
   color: var(--ink);
+}
+
+.buy-reassure {
+  margin: 0.75rem 0 0;
+  max-width: 36rem;
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.buy-reassure a {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.buy-reassure a:hover {
+  text-decoration: underline;
+}
+
+.legal-draft {
+  margin: 0 0 1.25rem;
+  padding: 0.7rem 0.9rem;
+  border: 1px dashed var(--copper);
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.photo-slot {
+  background: var(--line);
+  min-height: 16rem;
+}
+
+.photo-slot img {
+  width: 100%;
+  height: 22rem;
+  object-fit: cover;
+}
+
+.video-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  justify-items: center;
+}
+
+.split .video-pair {
+  grid-template-columns: 1fr;
+}
+
+.cta-band .buy-reassure {
+  color: #c4bfb6;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-band .buy-reassure a {
+  color: #eeeae4;
+}
+
+.lp-nav .nav-links {
+  gap: 1.25rem;
+}
+
+.lp-list {
+  margin: 1rem 0 0 1.15rem;
+}
+
+.lp-list li {
+  margin: 0.45rem 0;
+}
+
+.price-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.75rem 1.25rem;
+  margin: 0.5rem 0 1rem;
+}
+
+.price-row .price {
+  margin: 0;
 }
 
 .btn {
@@ -1348,8 +1435,13 @@ body.lead-popup-open {
     order: -1;
   }
 
-  .trainer img {
+  .trainer img,
+  .photo-slot img {
     height: 16rem;
+  }
+
+  .video-pair {
+    grid-template-columns: 1fr;
   }
 
   .progress {

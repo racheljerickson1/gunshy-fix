@@ -19,6 +19,18 @@
     "gbraid",
     "wbraid",
   ];
+  const LINKER_DOMAINS = [
+    "gunshyfix.com",
+    "www.gunshyfix.com",
+    "store.gunshyfix.com",
+    "thegunshyfix.bandzoogle.com",
+  ];
+  const CHECKOUT_ITEM = {
+    item_id: "gunshy-fix-8-lesson",
+    item_name: "Gunshy Fix 8-Lesson Audio Program",
+    price: 39.99,
+    quantity: 1,
+  };
 
   /*
    * Google Ads tag
@@ -40,20 +52,50 @@
     ga.src = "https://www.googletagmanager.com/gtag/js?id=" + GA_MEASUREMENT_ID;
     document.head.appendChild(ga);
     gtag("js", new Date());
-    gtag("config", GA_MEASUREMENT_ID);
+    gtag("set", "linker", { domains: LINKER_DOMAINS });
+    gtag("config", GA_MEASUREMENT_ID, {
+      linker: {
+        domains: LINKER_DOMAINS,
+        accept_incoming: true,
+      },
+    });
     // Google Ads: set GOOGLE_ADS_ID above, then uncomment:
     // gtag("config", GOOGLE_ADS_ID);
     if (GOOGLE_ADS_ID && GOOGLE_ADS_ID.indexOf("XXXX") === -1) {
-      gtag("config", GOOGLE_ADS_ID);
+      gtag("config", GOOGLE_ADS_ID, {
+        linker: { domains: LINKER_DOMAINS, accept_incoming: true },
+      });
     }
   }
 
-  function track(event, props) {
-    const payload = Object.assign({ event: event }, props || {});
-    window.dataLayer.push(payload);
-    if (typeof window.gtag === "function") {
-      window.gtag("event", event, props || {});
+  function sendGaEvent(event, props, callback) {
+    const payload = Object.assign(
+      { transport_type: "beacon" },
+      props || {}
+    );
+    window.dataLayer.push(Object.assign({ event: event }, payload));
+    if (typeof window.gtag !== "function") {
+      if (typeof callback === "function") callback();
+      return;
     }
+    if (typeof callback === "function") {
+      let done = false;
+      const finish = function () {
+        if (done) return;
+        done = true;
+        callback();
+      };
+      payload.event_callback = finish;
+      payload.event_timeout = 2000;
+      window.gtag("event", event, payload);
+      window.setTimeout(finish, 2000);
+      return;
+    }
+    window.gtag("event", event, payload);
+  }
+
+  function track(event, props) {
+    sendGaEvent(event, props);
   }
 
   window.gunshyTrack = track;
@@ -199,11 +241,27 @@
       if (!isStoreBuyLink(link)) return;
       const href = appendTrackingParams(link.getAttribute("href") || link.href);
       link.href = href;
-      track("begin_checkout", {
+      const params = {
         currency: "USD",
         value: 39.99,
+        items: [CHECKOUT_ITEM],
         location: location.pathname,
         href: href,
+      };
+      const newTab =
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.altKey ||
+        event.button === 1 ||
+        (link.getAttribute("target") || "") === "_blank";
+      if (newTab) {
+        sendGaEvent("begin_checkout", params);
+        return;
+      }
+      event.preventDefault();
+      sendGaEvent("begin_checkout", params, function () {
+        location.href = href;
       });
     });
   }
@@ -228,7 +286,6 @@
         return;
       }
 
-      track("free_guide_form_submit", { location: location.pathname });
       if (status) {
         status.textContent = "";
         status.classList.remove("is-error");
@@ -238,11 +295,14 @@
         button.textContent = "Sending…";
       }
 
+      const honeypot = String(
+        (form.querySelector('[name="company"]') || {}).value || ""
+      ).trim();
       const payload = Object.assign(
         {
           email: email.trim(),
           source_url: location.href,
-          company: (form.querySelector('[name="company"]') || {}).value || "",
+          company: honeypot,
         },
         utm
       );
@@ -259,13 +319,34 @@
             data.error || "We could not complete signup. Please try again."
           );
         }
-        track("free_guide_subscribe_success", { location: location.pathname });
         try {
           localStorage.setItem("gsf_guide_subscribed", "1");
         } catch {
           /* ignore */
         }
-        location.href = data.redirect || "/free-guide/thank-you";
+        const thankYou = data.redirect || "/free-guide/thank-you";
+        if (honeypot) {
+          location.href = thankYou;
+          return;
+        }
+        try {
+          sessionStorage.setItem("gsf_pending_lead", "1");
+        } catch {
+          /* ignore */
+        }
+        sendGaEvent(
+          "generate_lead",
+          { method: "free_guide", location: location.pathname },
+          function () {
+            try {
+              sessionStorage.setItem("gsf_lead_sent", "1");
+              sessionStorage.removeItem("gsf_pending_lead");
+            } catch {
+              /* ignore */
+            }
+            location.href = thankYou;
+          }
+        );
       } catch (error) {
         if (status) {
           status.textContent =
@@ -345,7 +426,7 @@
         '<p class="eyebrow">Free training guide</p>' +
         '<h2 id="lead-popup-title">5 gun introduction mistakes that can create a gun-shy dog</h2>' +
         "<p>A practical guide from Tyce Erickson — before you introduce a dog to gunfire.</p>" +
-        '<form class="guide-form" data-guide-form>' +
+        '<form class="guide-form" data-guide-form data-gtag-ignore>' +
         '<div class="hp-field"><label for="popup-company">Company</label>' +
         '<input type="text" id="popup-company" name="company" tabindex="-1" autocomplete="off" /></div>' +
         '<label for="popup-guide-email">Email address</label>' +
@@ -445,6 +526,21 @@
   initHowToPath();
 
   if (location.pathname.indexOf("/free-guide/thank-you") !== -1) {
+    try {
+      if (
+        sessionStorage.getItem("gsf_pending_lead") === "1" &&
+        sessionStorage.getItem("gsf_lead_sent") !== "1"
+      ) {
+        sessionStorage.setItem("gsf_lead_sent", "1");
+        sessionStorage.removeItem("gsf_pending_lead");
+        sendGaEvent("generate_lead", {
+          method: "free_guide",
+          location: location.pathname,
+        });
+      }
+    } catch {
+      /* ignore */
+    }
     track("thank_you_view", { location: location.pathname });
   }
 })();

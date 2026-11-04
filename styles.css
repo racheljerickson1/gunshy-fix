@@ -305,8 +305,68 @@ h3,
   margin-right: auto;
 }
 
-.cta-band .buy-reassure a {
+.cta-band .buy-reassure a,
+.cta-band .buy-note a {
   color: #eeeae4;
+}
+
+.buy-note {
+  margin: 0.7rem 0 0;
+  max-width: 36rem;
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.buy-note a {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.buy-note a:hover {
+  text-decoration: underline;
+}
+
+.cta-band .buy-note {
+  color: #c4bfb6;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sample-audio {
+  margin: 0.85rem 0 0;
+  max-width: 28rem;
+}
+
+.sample-audio figcaption {
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.sample-audio audio {
+  display: block;
+  width: 100%;
+  height: 40px;
+}
+
+.product-cta {
+  margin: 2.25rem 0;
+  padding: 1.5rem 1.35rem;
+  border: 1px solid var(--line);
+  background: var(--white);
+}
+
+.article .product-cta h2,
+.product-cta h2 {
+  font-size: 1.35rem;
+  margin: 0 0 1rem;
+}
+
+.product-cta .btn {
+  width: 100%;
+  max-width: 22rem;
 }
 
 .lp-nav .nav-links {
@@ -334,12 +394,15 @@ h3,
 }
 
 .btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.07em;
   text-transform: uppercase;
   text-decoration: none;
+  min-height: 44px;
   padding: 0.85rem 1.35rem;
   border: 1px solid transparent;
   cursor: pointer;
@@ -845,6 +908,13 @@ h3,
   .article-hero {
     margin: 0 0 2rem;
   }
+
+  .hero-buy .btn,
+  .btn-group .btn,
+  .product-cta .btn {
+    width: 100%;
+    max-width: 22rem;
+  }
 }
 
 .prose {
@@ -897,6 +967,14 @@ h3,
 
 .guide-promo h1 {
   font-size: clamp(2rem, 4.5vw, 3.1rem);
+}
+
+.guide-preview {
+  margin: 0.75rem 0 1.5rem 1.2rem;
+}
+
+.guide-preview li + li {
+  margin-top: 0.4rem;
 }
 
 .guide-mock {

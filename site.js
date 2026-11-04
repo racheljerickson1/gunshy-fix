@@ -145,7 +145,7 @@
     const bar = document.createElement("div");
     bar.className = "footer-lead";
     bar.innerHTML =
-      '<div class="footer-lead-inner"><p>Free guide: 5 gun introduction mistakes that can create a gun-shy dog.</p><a href="/free-guide">Get the free guide</a></div>';
+      '<div class="footer-lead-inner"><p>Is your dog already gun shy? Start here.</p><a href="/free-guide">Send me the free guide</a></div>';
     footer.parentNode.insertBefore(bar, footer);
 
     const links = footer.querySelector(".footer-links");
@@ -182,9 +182,9 @@
     card.className = "lead-card";
     card.innerHTML =
       '<p class="eyebrow">Free Guide</p>' +
-      "<h3>5 Gun Introduction Mistakes That Can Create a Gun-Shy Dog</h3>" +
-      "<p>Before your next training session, learn the mistakes Tyce sees hunters make when introducing dogs to gunfire.</p>" +
-      '<a class="btn btn-outline" href="/free-guide" data-track="lead_magnet_cta_click">Get the Free Guide</a>';
+      "<h3>Is your dog already gun shy? Start here.</h3>" +
+      "<p>5 calm, practical things to do right now, from professional bird dog trainer Tyce Erickson.</p>" +
+      '<a class="btn btn-outline" href="/free-guide" data-track="lead_magnet_cta_click">Send me the free guide</a>';
     const end = article.querySelector(".article-end");
     if (end) end.insertAdjacentElement("afterend", card);
     else article.appendChild(card);
@@ -356,7 +356,7 @@
         }
         if (button) {
           button.disabled = false;
-          button.textContent = "Send Me the Free Guide";
+          button.textContent = "Send me the free guide";
         }
       }
     });
@@ -424,14 +424,14 @@
         '<div class="lead-popup" role="dialog" aria-modal="true" aria-labelledby="lead-popup-title">' +
         '<button type="button" class="lead-popup-close" aria-label="Close">Close</button>' +
         '<p class="eyebrow">Free training guide</p>' +
-        '<h2 id="lead-popup-title">5 gun introduction mistakes that can create a gun-shy dog</h2>' +
-        "<p>A practical guide from Tyce Erickson — before you introduce a dog to gunfire.</p>" +
+        '<h2 id="lead-popup-title">Is your dog already gun shy? Start here.</h2>' +
+        "<p>5 calm, practical things to do right now, from professional bird dog trainer Tyce Erickson.</p>" +
         '<form class="guide-form" data-guide-form data-gtag-ignore>' +
         '<div class="hp-field"><label for="popup-company">Company</label>' +
         '<input type="text" id="popup-company" name="company" tabindex="-1" autocomplete="off" /></div>' +
         '<label for="popup-guide-email">Email address</label>' +
         '<input id="popup-guide-email" name="email" type="email" inputmode="email" autocomplete="email" required placeholder="you@example.com" />' +
-        '<button class="btn btn-primary" type="submit">Send Me the Free Guide</button>' +
+        '<button class="btn btn-primary" type="submit">Send me the free guide</button>' +
         '<p class="form-status" role="status" aria-live="polite"></p>' +
         "</form>" +
         '<p class="permission">Free Gunshy Fix training tips. Unsubscribe anytime.</p>' +
